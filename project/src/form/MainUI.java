@@ -1,12 +1,12 @@
 package form;
 
-import java.awt.BorderLayout;
-import java.awt.Button;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,9 +16,59 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import form.MainUI.*;
+
 public class MainUI {
 
-   public static void main(String[] args) {
+	JoinUI joinUi;
+	LoginUI loginUi;
+	ReservationMain reserUi;
+	
+	
+	JButton login;
+	JButton join;
+	JButton reservation;
+	JMenu reserv;
+	
+	public MainUI(JoinUI joinUi, LoginUI loginUi, ReservationMain reserUi) {
+		// TODO Auto-generated constructor stub
+		
+		this.joinUi = joinUi;
+		this.loginUi = loginUi;
+		this.reserUi = reserUi;
+		
+		work();
+	}
+	
+	class LoginAction implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			loginUi.work();
+		}
+	}
+	
+	class JoinAction implements ActionListener	{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			joinUi.work();
+		}
+	}
+	
+	class ReserAction implements ActionListener	{
+ 
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			reserUi.work();
+		}
+		
+	}
+	
+	
+	
+   public void work() {
       // TODO Auto-generated method stub
       
       JFrame jf = new JFrame("주차관리프로그램");
@@ -64,25 +114,28 @@ public class MainUI {
       
       /////////////////////////////////////////// 버튼들
       
-      JButton join = new JButton("회원가입");
+      join = new JButton("회원가입");
       join.setBounds(700, 15, 80, 30);
       jf.add(join);
+      join.addActionListener(new JoinAction());
       
-      JButton login = new JButton("로그인");
+      login = new JButton("로그인");
       login.setBounds(620, 15, 80, 30);
       jf.add(login);
+      login.addActionListener(new LoginAction());
       
       
       
       
       
-      JButton reservation = new JButton("예약하기");
+      reservation = new JButton("예약하기");
       reservation.setBounds(30,60,180,30);
-      JMenu reserv = new JMenu();
-      reserv.setBounds(30,60,180,30);
-      reservation.add(reserv);
+     
       
       jf.add(reservation);
+      reservation.addActionListener(new ReserAction());
+      
+      
       
       JButton parkin = new JButton("입차");
       parkin.setBounds(30,90,180,30);
