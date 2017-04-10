@@ -1,20 +1,48 @@
 package form;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import Member.*;
+
 public class FindInfoUI {
 
-	FindInfoUI()	{
-		
-	}
+//	memberDAO memberdao;
+	JTextField insertnamefield,inserttelfield,insertnamefield2, inserttelfield2 ;
+	JButton findinfoconfirm;
 	
+	 String foundinfo;//조회한 정보(id, pw) 받을 변수
+     JLabel searchedinfo; // 이 라벨 값 안에 foundinfo값이 들어간다.
+//	
+//	FindInfoUI()	{
+//		try {
+//			memberdao = new memberDAO();
+//		} catch (ClassNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		
+//	}
+	
+//	class FindAction implements ActionListener	{
+//		@Override
+//		public void actionPerformed(ActionEvent e) {
+//			// TODO Auto-generated method stub
+//			System.out.println(memberdao.findingId(insertnamefield.getText(), inserttelfield.getText()));
+//		}
+//	}
 	
    public void work() {
 	// TODO Auto-generated method stub
+	      
+	     // TODO Auto-generated method stub
 	      
 	      JFrame findinfo = new JFrame("회원정보찾기: 12*10");
 	      findinfo.setBounds(300, 200, 340, 284);
@@ -44,6 +72,9 @@ public class FindInfoUI {
 	      inserttelfield.setBounds(80,80,80,30);
 	      findinfo.add(inserttelfield);
 	      
+	      JButton findIDconfirm = new JButton("ID 조회하기");
+	      findIDconfirm.setBounds(80,120, 80, 30);
+	      findinfo.add(findIDconfirm);
 	      
 	      
 	      ///////////////////////////////////////////////////////////
@@ -70,10 +101,10 @@ public class FindInfoUI {
 	      inserttelfield2.setBounds(235,80,80,30);
 	      findinfo.add(inserttelfield2);
 	      
+	      JButton findPWconfirm = new JButton("PW 조회하기");
+	      findPWconfirm.setBounds(235, 120, 80, 30);
+	      findinfo.add(findPWconfirm);
 	      
-	      JButton findinfoconfirm = new JButton("조회하기");
-	      findinfoconfirm.setBounds(100, 120, 140, 30);
-	      findinfo.add(findinfoconfirm);
 	      
 	      
 	      
